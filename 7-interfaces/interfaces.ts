@@ -98,6 +98,7 @@ interface Employee {
   email: string;
 }
 
+
 // Extending multiple interfaces
 interface Engineer extends Human, Employee {
   level: string;
