@@ -16,4 +16,8 @@ function abc(a: number, b: number) {
   console.log(a.toString());
 }
 
+
+let x:any=5;
+x="navii";
+
 abc(a, +b);
