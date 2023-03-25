@@ -46,3 +46,46 @@ class Navi {
 
 
 
+
+interface Animal{
+
+}
+
+interface Human{
+  gender:string;
+  age:number;
+}
+
+
+type Muman={
+  gender:string;
+  age:number;
+}
+
+
+interface Boy extends Human,Animal{
+  height:number
+}
+
+
+
+
+abstract class Abc implements Navi{
+  abstract name:string;
+
+}
+
+
+
+// function abc(name?:string,age?:number):void{
+//   console.log("hello "+ name);
+// }
+
+// abc();
+
+
+
+
+
+
+
