@@ -103,3 +103,52 @@ let navi: A | B;
 navi={name:"Navi"}
 navi={age:23}
 navi={name:"Navi",age:34}
+
+
+
+
+
+/// Union and Intersection of types and interface
+
+
+type a= string | number;
+type b = string & number;
+
+let x:a 
+let y:b
+
+
+
+type u = a & b
+
+// let g:u = "djf"
+
+type ab=number;
+type xy=number;
+type aa= ab|xy;
+type bb= ab&xy
+
+
+
+type r ={
+  m:string;
+  n:number;
+}
+
+
+
+type s={
+  n:string;
+  p:number;
+}
+
+let q: s | r={
+  m:"Naviiii",
+  n:"sfd",
+  p:6,
+
+}
+
+
+
+

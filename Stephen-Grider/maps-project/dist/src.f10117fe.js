@@ -22818,11 +22818,24 @@ exports.User = User;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+/// <reference types="@types/google.maps" />
 var Company_1 = require("./Company");
 var User_1 = require("./User");
 var company = new Company_1.Company();
 var user = new User_1.User();
 console.log(user);
+var map;
+var center = {
+  lat: 30,
+  lng: -110
+};
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: center,
+    zoom: 8
+  });
+}
+initMap();
 },{"./Company":"src/Company.ts","./User":"src/User.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
