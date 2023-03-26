@@ -47,41 +47,41 @@ class Navi {
 
 
 
-interface Animal{
+// interface Animal{
 
-}
-
-interface Human{
-  gender:string;
-  age:number;
-}
-
-
-type Muman={
-  gender:string;
-  age:number;
-}
-
-
-interface Boy extends Human,Animal{
-  height:number
-}
-
-
-
-
-abstract class Abc implements Navi{
-  abstract name:string;
-
-}
-
-
-
-// function abc(name?:string,age?:number):void{
-//   console.log("hello "+ name);
 // }
 
-// abc();
+// interface Human{
+//   gender:string;
+//   age:number;
+// }
+
+
+// type Muman={
+//   gender:string;
+//   age:number;
+// }
+
+
+// interface Boy extends Human,Animal{
+//   height:number
+// }
+
+
+
+
+// abstract class Abc implements Navi{
+//   abstract name:string;
+
+// }
+
+
+
+// // function abc(name?:string,age?:number):void{
+// //   console.log("hello "+ name);
+// // }
+
+// // abc();
 
 
 
@@ -91,64 +91,102 @@ abstract class Abc implements Navi{
 
 
 
-type A= {
+// type A= {
+//   name:string;
+// }
+// type B={
+//   age:number;
+// }
+
+
+// let navi: A | B;
+// navi={name:"Navi"}
+// navi={age:23}
+// navi={name:"Navi",age:34}
+
+
+
+
+
+// /// Union and Intersection of types and interface
+
+
+// type a= string | number;
+// type b = string & number;
+
+// let x:a 
+// let y:b
+
+
+
+// type u = a & b
+
+// // let g:u = "djf"
+
+// type ab=number;
+// type xy=number;
+// type aa= ab|xy;
+// type bb= ab&xy
+
+
+
+// type r ={
+//   m:string;
+//   n:number;
+// }
+
+
+
+// type s={
+//   n:string;
+//   p:number;
+// }
+
+// let q: s | r={
+//   m:"Naviiii",
+//   n:"sfd",
+//   p:6,
+
+// }
+
+
+
+
+
+
+// type a= number| string;
+// type b= number| boolean
+
+// type c= a|b;
+
+
+interface a{
   name:string;
-}
-type B={
-  age:number;
+  age:number
 }
 
-
-let navi: A | B;
-navi={name:"Navi"}
-navi={age:23}
-navi={name:"Navi",age:34}
-
-
-
-
-
-/// Union and Intersection of types and interface
-
-
-type a= string | number;
-type b = string & number;
-
-let x:a 
-let y:b
-
-
-
-type u = a & b
-
-// let g:u = "djf"
-
-type ab=number;
-type xy=number;
-type aa= ab|xy;
-type bb= ab&xy
-
-
-
-type r ={
-  m:string;
-  n:number;
+interface b{
+  school:string;
+  inSchool:boolean
 }
 
 
-
-type s={
-  n:string;
-  p:number;
-}
-
-let q: s | r={
-  m:"Naviiii",
-  n:"sfd",
-  p:6,
+interface c extends a,b{
 
 }
 
 
+let x:c={
+  name:"Navi",
+  age:4,
+  school:"Dps",
+  inSchool:false
+}
 
 
+class boy implements a,b{
+  name="Navi";
+  age=4;
+  school="Dps";
+  inSchool=false
+}
