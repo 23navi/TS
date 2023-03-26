@@ -89,3 +89,17 @@ abstract class Abc implements Navi{
 
 
 
+
+
+type A= {
+  name:string;
+}
+type B={
+  age:number;
+}
+
+
+let navi: A | B;
+navi={name:"Navi"}
+navi={age:23}
+navi={name:"Navi",age:34}
