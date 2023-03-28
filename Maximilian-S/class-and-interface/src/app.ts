@@ -190,3 +190,5 @@ class boy implements a,b{
   school="Dps";
   inSchool=false
 }
+
+
