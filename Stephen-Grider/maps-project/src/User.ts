@@ -15,8 +15,8 @@ class User {
 
     //faker.address.latitude and longitude returns string value... to convert it to number we user + shorthand.
     this.location = {
-      lat: +faker.address.latitude,
-      long: +faker.address.longitude,
+      lat: +faker.address.latitude(),
+      long: +faker.address.longitude(),
     };
   }
 }
