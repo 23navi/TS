@@ -40,7 +40,32 @@ export class CustomMap {
 
   }
 
+
+
+
+  addMarker(mappable: User | Company):void{
+
+    // if(mappable instanceof User){
+    //   mappable.
+    // }
+
+    new google.maps.Marker({
+      map:this.googleMap,
+      position:{
+        lat:mappable.location.lat,
+        lng:mappable.location.long,
+      }
+    })
+  
+  }
+
 }
+
+
+
+
+
+
 
 
 
