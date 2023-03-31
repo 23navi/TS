@@ -1,0 +1,20 @@
+{
+  "name": "sorting-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:run":"nodemon build/index.js",
+    "start:build":"tsc -w",
+    "start":"tsc -w & nodemon build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22",
+    "typescript": "^5.0.3"
+  }
+}
