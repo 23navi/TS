@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-export class Company {
+export class Company  {
     companyName:string;
     catchPhrase:string;
     location: {
