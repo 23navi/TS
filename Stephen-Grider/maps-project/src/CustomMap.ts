@@ -4,6 +4,15 @@
 import {User} from "./User";
 import { Company } from "./Company";
 
+
+
+export interface Mappable{
+  location:{
+    lat:number,
+    long:number
+  }
+}
+
 export class CustomMap {
   private googleMap: google.maps.Map;
   constructor(divId: string) {
@@ -43,7 +52,7 @@ export class CustomMap {
 
 
 
-  addMarker(mappable: User | Company):void{
+  addMarker(mappable: Mappable):void{
 
     // if(mappable instanceof User){
     //   mappable.
