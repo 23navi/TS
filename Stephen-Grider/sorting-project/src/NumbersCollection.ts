@@ -1,7 +1,17 @@
 import { Sortable } from "./Sorter";
-export class NumbersCollections implements Sortable{
+import {Sorter} from "./Sorter"
+export class NumbersCollections extends Sorter{
     
-    constructor(public data:number[]){};
+    constructor(public data:number[]){
+        super();
+    };
+
+    //This is not working!!
+
+    // toString(){
+    //     console.log("hello");
+    // }
+
     swap(leftIndex:number,rightIndex  :number):void{
         const temp=this.data[leftIndex];
         this.data[leftIndex]=this.data[rightIndex];

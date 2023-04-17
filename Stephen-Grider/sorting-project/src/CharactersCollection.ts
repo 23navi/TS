@@ -1,7 +1,10 @@
 import { Sortable } from "./Sorter";
-export class CharactersCollections implements Sortable{
+import {Sorter} from "./Sorter"
+export class CharactersCollections extends Sorter{
     
-    constructor(public data:string){};
+    constructor(public data:string){
+        super();
+    };
 
     swap(leftIndex:number,rightIndex  :number):void{
         const charArray= this.data.split("");
