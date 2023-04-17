@@ -20,4 +20,4 @@ class Sorter {
 const numberColl = new NumbersCollection_1.NumbersCollections([3, 4, 15, 6, 3]);
 const sorter = new Sorter(numberColl);
 sorter.sort();
-console.log(sorter.collection.data);
+console.log(numberColl.data);

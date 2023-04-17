@@ -1,7 +1,14 @@
 import { NumbersCollections } from "./NumbersCollection";
 
+
+export interface Sortable{
+    length:number;
+    swap(leftIndex:number,rightIndex:number):void;
+    compare(leftIndex:number,rightIndex:number):boolean;
+}
+
 class Sorter{
-    constructor(public collection:NumbersCollections){};
+    constructor(public collection:Sortable){};
 
     sort():void{
         const {length}= this.collection;
@@ -19,4 +26,4 @@ const numberColl= new NumbersCollections([3,4,15,6,3]);
 
 const sorter= new Sorter(numberColl);
 sorter.sort()
-console.log(sorter.collection.data);
+console.log(numberColl.data);
