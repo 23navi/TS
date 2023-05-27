@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MatchFileReader = void 0;
-const convertDate_utils_1 = require("./convertDate.utils");
-const CsvFileReader_1 = require("./inheritance/CsvFileReader");
+const convertDate_utils_1 = require("../convertDate.utils");
+const CsvFileReader_1 = require("./CsvFileReader");
 class MatchFileReader extends CsvFileReader_1.CsvFileReader {
     constructor(filename) {
         super(filename);

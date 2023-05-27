@@ -1,10 +1,15 @@
-import { MatchFileReader } from "./MatchFileReader";
+import { CsvFileReader } from "./composition (interface)/CsvFileReader";
+import { MatchFileReader } from "./composition (interface)/MatchReader";
 
-const matchFileReader = new MatchFileReader("football.csv");
-matchFileReader.read();
+// const matchFileReader = new MatchFileReader("football.csv");
+// matchFileReader.read();
 
-//our matches is string[][]
-const matches = matchFileReader.data;
+const csvFileReader = new CsvFileReader("football.csv");
+
+const matchReader = new MatchFileReader(csvFileReader);
+matchReader.load();
+
+const matches = matchReader.matches;
 let manWon = 0;
 
 for (let match of matches) {
