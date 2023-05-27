@@ -1,6 +1,6 @@
-import { MatchResult } from "./MatchResults.enum";
+import { MatchResult } from "../MatchResults.enum";
 
-import { dateStringToDate } from "./convertDate.utils";
+import { dateStringToDate } from "../convertDate.utils";
 
 import { CsvFileReader } from "./CsvFileReader";
 

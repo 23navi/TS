@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const MatchFileReader_1 = require("./MatchFileReader");
+const MatchFileReader_1 = require("./inheritance (abstract class)/MatchFileReader");
 const matchFileReader = new MatchFileReader_1.MatchFileReader("football.csv");
 matchFileReader.read();
 //our matches is string[][]

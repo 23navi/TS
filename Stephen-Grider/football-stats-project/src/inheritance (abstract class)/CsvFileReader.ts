@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import { MatchResult } from "./MatchResults.enum";
+import { MatchResult } from "../MatchResults.enum";
 
 // type MatchData = [Date, string, string, number, number, MatchResult, string];
 export abstract class CsvFileReader<T> {

@@ -1,4 +1,4 @@
-import { MatchFileReader } from "./MatchFileReader";
+import { MatchFileReader } from "./inheritance (abstract class)/MatchFileReader";
 
 const matchFileReader = new MatchFileReader("football.csv");
 matchFileReader.read();
