@@ -2,13 +2,13 @@ import fs from "fs";
 
 import { MatchResult } from "./MatchResults.enum";
 
-import { dateStringToDate } from "./convertDate.utils";
-import { parse } from "path";
-
-type MatchData = [Date, string, string, number, number, MatchResult, string];
-export class CsvFileReader {
+// type MatchData = [Date, string, string, number, number, MatchResult, string];
+export abstract class CsvFileReader<T> {
   constructor(public filename: string) {}
-  public data: MatchData[] = [];
+
+  abstract mapRow(row: string[]): T;
+
+  public data: T[] = [];
   public read(): void {
     this.data = fs
       .readFileSync(this.filename, { encoding: "utf-8" })
@@ -16,16 +16,6 @@ export class CsvFileReader {
       .map((row: string): string[] => {
         return row.split(",");
       })
-      .map((row: string[]): MatchData => {
-        return [
-          dateStringToDate(row[0]),
-          row[1],
-          row[2],
-          parseInt(row[3]),
-          parseInt(row[4]),
-          row[5] as MatchResult,
-          row[6],
-        ];
-      });
+      .map(this.mapRow);
   }
 }
