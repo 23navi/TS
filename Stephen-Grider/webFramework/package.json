@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:parcel": "npx parcel index.html",
+    "start:db": "npx json-server -w db.json",
+    "delete_node_modules": "rm -r node_modules",
+    "delete_parcel-cache": "rm -r .cache && rm -r .parcel-cache",
+    "delete_dist": "rm -r dist",
+    "npmi": "npm install",
+    "pre": "npm run delete_dist && npm run delete_parcel-cache && npm run delete_node_modules && npm run npmi ",
+    "dev": " npm run start:db & npm run start:parcel"
   },
   "author": "",
   "license": "ISC",
