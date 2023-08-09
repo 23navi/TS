@@ -127,12 +127,18 @@ exports.User = void 0;
 var User = /** @class */function () {
   function User(user) {
     this.user = user;
+    this.events = {};
   }
   User.prototype.get = function (propName) {
     return this.user[propName];
   };
   User.prototype.set = function (update) {
     Object.assign(this.user, update);
+  };
+  User.prototype.on = function (eventName, callback) {
+    var handlers = this.events[eventName] || [];
+    handlers.push(callback);
+    this.events[eventName] = handlers;
   };
   return User;
 }();
@@ -149,8 +155,7 @@ var user = new User_1.User({
   age: 22
 });
 user.set({
-  name: "aaa",
-  age: 21
+  name: "aaa"
 });
 console.log(user.get("name"));
 console.log(user.get("age"));
@@ -179,7 +184,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59090" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59975" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

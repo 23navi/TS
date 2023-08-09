@@ -2,3 +2,6 @@
 TypeScript+Slides.pdf
 node_modules
 db.json
+.cache
+dist
+.parcel-cache
