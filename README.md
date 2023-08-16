@@ -1,3 +1,3 @@
-# typescript
+# Typescript
 
 Learing typescript
