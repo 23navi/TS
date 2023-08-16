@@ -1,6 +1,6 @@
-import { IOutputTarget } from "../Summery";
+import { IOutputTarget } from "../Summary";
 
-export class ConsoleOutputTarget implements IOutputTarget {
+export class ConsoleReport implements IOutputTarget {
   print(report: string): void {
     console.log(report);
   }

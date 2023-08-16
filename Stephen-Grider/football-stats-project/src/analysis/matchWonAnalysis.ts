@@ -1,4 +1,4 @@
-import { IAnalyzer } from "../Summery";
+import { IAnalyzer } from "../Summary";
 import { MatchData } from "../MatchData.type";
 import { MatchResult } from "../MatchResults.enum";
 

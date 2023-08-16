@@ -1,5 +1,5 @@
 import fs from "fs";
-import { IOutputTarget } from "../Summery";
+import { IOutputTarget } from "../Summary";
 
 export class HtmlReport implements IOutputTarget {
   print(report: string): void {
