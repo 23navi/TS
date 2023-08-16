@@ -5,9 +5,7 @@ import { Summary } from "./Summary";
 // const matchFileReader = new MatchFileReader("football.csv");
 // matchFileReader.read();
 
-const csvFileReader = new CsvFileReader("football.csv");
-
-const matchReader = new MatchFileReader(csvFileReader);
+const matchReader = MatchFileReader.fromCsv("football.csv");
 matchReader.load();
 
 const matches = matchReader.matches;
