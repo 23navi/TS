@@ -4,7 +4,7 @@ import { dateStringToDate } from "../convertDate.utils";
 
 import { CsvFileReader } from "./CsvFileReader";
 
-import { MatchData } from "./MatchData.type";
+import { MatchData } from "../MatchData.type";
 
 // type MatchData = [Date, string, string, number, number, MatchResult, string];
 

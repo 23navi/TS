@@ -1,4 +1,4 @@
-import { MatchResult } from "../MatchResults.enum";
+import { MatchResult } from "./MatchResults.enum";
 export type MatchData = [
   Date,
   string,

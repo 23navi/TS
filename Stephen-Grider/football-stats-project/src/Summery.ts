@@ -1,4 +1,4 @@
-import { MatchData } from "./inheritance (abstract class)/MatchData.type";
+import { MatchData } from "./MatchData.type";
 
 export interface IAnalyzer {
   run(match: MatchData[]): string;
