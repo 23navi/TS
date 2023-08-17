@@ -127,6 +127,7 @@ exports.User = void 0;
 var User = /** @class */function () {
   function User(user) {
     this.user = user;
+    // To store the different callbacks attached to a event for an User object as array...
     this.events = {};
   }
   User.prototype.get = function (propName) {
@@ -139,6 +140,15 @@ var User = /** @class */function () {
     var handlers = this.events[eventName] || [];
     handlers.push(callback);
     this.events[eventName] = handlers;
+  };
+  User.prototype.trigger = function (eventName) {
+    var handlers = this.events[eventName];
+    if (!handlers || handlers.length === 0) {
+      return;
+    }
+    handlers.forEach(function (callback) {
+      callback();
+    });
   };
   return User;
 }();
@@ -184,7 +194,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59975" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59518" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
