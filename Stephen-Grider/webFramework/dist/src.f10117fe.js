@@ -5421,7 +5421,36 @@ exports.isCancel = isCancel;
 exports.CanceledError = CanceledError;
 exports.AxiosError = AxiosError;
 exports.Axios = Axios;
-},{"./lib/axios.js":"node_modules/axios/lib/axios.js"}],"src/models/User.ts":[function(require,module,exports) {
+},{"./lib/axios.js":"node_modules/axios/lib/axios.js"}],"src/models/Eventing.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Eventing = void 0;
+var Eventing = /** @class */function () {
+  function Eventing() {
+    // To store the different callbacks attached to a event for an User object as array...
+    this.events = {};
+  }
+  Eventing.prototype.on = function (eventName, callback) {
+    var handlers = this.events[eventName] || [];
+    handlers.push(callback);
+    this.events[eventName] = handlers;
+  };
+  Eventing.prototype.trigger = function (eventName) {
+    var handlers = this.events[eventName];
+    if (!handlers || handlers.length === 0) {
+      return;
+    }
+    handlers.forEach(function (callback) {
+      callback();
+    });
+  };
+  return Eventing;
+}();
+exports.Eventing = Eventing;
+},{}],"src/models/User.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -5434,11 +5463,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = void 0;
 var axios_1 = __importDefault(require("axios"));
+var Eventing_1 = require("./Eventing");
 var User = /** @class */function () {
   function User(user) {
     this.user = user;
-    // To store the different callbacks attached to a event for an User object as array...
-    this.events = {};
+    this.events = new Eventing_1.Eventing();
   }
   // is we did user.get("id"), we will get this user's id
   User.prototype.get = function (propName) {
@@ -5446,20 +5475,6 @@ var User = /** @class */function () {
   };
   User.prototype.set = function (update) {
     Object.assign(this.user, update);
-  };
-  User.prototype.on = function (eventName, callback) {
-    var handlers = this.events[eventName] || [];
-    handlers.push(callback);
-    this.events[eventName] = handlers;
-  };
-  User.prototype.trigger = function (eventName) {
-    var handlers = this.events[eventName];
-    if (!handlers || handlers.length === 0) {
-      return;
-    }
-    handlers.forEach(function (callback) {
-      callback();
-    });
   };
   // This fetches the data from the server of a user and sets it to user
   User.prototype.fetch = function () {
@@ -5477,7 +5492,7 @@ var User = /** @class */function () {
   return User;
 }();
 exports.User = User;
-},{"axios":"node_modules/axios/index.js"}],"src/index.ts":[function(require,module,exports) {
+},{"axios":"node_modules/axios/index.js","./Eventing":"src/models/Eventing.ts"}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5489,6 +5504,7 @@ var user = new User_1.User({
   age: 22
 });
 user.save();
+user.fetch();
 user.set({
   name: "aaa"
 });
