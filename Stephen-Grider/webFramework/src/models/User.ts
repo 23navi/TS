@@ -2,7 +2,8 @@ import axios from "axios";
 
 import { Eventing } from "./Eventing";
 
-interface UserProp {
+//Exported so that Sync can use it for type
+export interface UserProp {
   id?: number;
   name?: string;
   age?: number;
