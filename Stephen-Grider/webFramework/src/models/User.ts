@@ -1,6 +1,5 @@
-import axios from "axios";
-
 import { Eventing } from "./Eventing";
+import { Sync } from "./Sync";
 
 //Exported so that Sync can use it for type
 export interface UserProp {
@@ -11,31 +10,23 @@ export interface UserProp {
 
 export class User {
   public events: Eventing = new Eventing();
+  public sync: Sync<UserProp> = new Sync<UserProp>(
+    "http://localhost:3000/users"
+  );
 
-  constructor(private user: UserProp) {}
+  // // This fetches the data from the server of a user and sets it to user
+  // fetch(): void {
+  //   axios
+  //     .get(`http://localhost:3000/users/${this.get("id")}`)
+  //     .then((response) => {
+  //       this.set(response.data);
+  //     });
+  // }
 
-  // is we did user.get("id"), we will get this user's id
-  get(propName: string): string | number {
-    return this.user[propName as keyof UserProp]!;
-  }
-
-  set(update: UserProp): void {
-    Object.assign(this.user, update);
-  }
-
-  // This fetches the data from the server of a user and sets it to user
-  fetch(): void {
-    axios
-      .get(`http://localhost:3000/users/${this.get("id")}`)
-      .then((response) => {
-        this.set(response.data);
-      });
-  }
-
-  save(): void {
-    if (this.get("id")) {
-      axios.put(`http://localhost:3000/users/${this.get("id")}`, this.user);
-    }
-    axios.post(`http://localhost:3000/users`, this.user);
-  }
+  // save(): void {
+  //   if (this.get("id")) {
+  //     axios.put(`http://localhost:3000/users/${this.get("id")}`, this.user);
+  //   }
+  //   axios.post(`http://localhost:3000/users`, this.user);
+  // }
 }

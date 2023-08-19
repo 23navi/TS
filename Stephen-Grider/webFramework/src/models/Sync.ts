@@ -1,26 +1,23 @@
-import axios from "axios";
+import axios, { AxiosPromise } from "axios";
 import { UserProp } from "./User";
 
-class Sync {
-  // This fetches the data from the server of a user and sets it to user
-  fetch(id: number, data: UserProp): void {
-    //     axios.get(`http://localhost:3000/users/${id}`).then((response) => {
-    //       this.set(response.data);
-    //     });
+interface IHasId {
+  id?: number;
+}
 
-    axios.get(`http://localhost:3000/users/${id}`).then((response) => {
-      return new Promise((resolve, reject) => {
-        if (response.data) resolve(response.data);
-        reject("j");
-      });
-    });
+export class Sync<T extends IHasId> {
+  constructor(public baseURL: string) {}
+
+  // This fetches the data from the server of a user and sets it to user
+  fetch(id: number, data: T): AxiosPromise {
+    return axios.get(`${this.baseURL}/${id}`);
   }
 
-  save(data: UserProp): void {
+  save(data: T): AxiosPromise {
     const { id } = data;
     if (id) {
-      axios.put(`http://localhost:3000/users/${id}`, data);
+      return axios.put(`${this.baseURL}/${id}`, data);
     }
-    axios.post(`http://localhost:3000/users`, data);
+    return axios.post(`${this.baseURL}`, data);
   }
 }
