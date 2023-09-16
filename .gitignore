@@ -1,4 +1,7 @@
 .DS_Store
 TypeScript+Slides.pdf
-node_modules
+node_moduless
+db.json
 .cache
+dist
+.parcel-cache
