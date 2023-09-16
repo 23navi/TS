@@ -1,11 +1,33 @@
-import {Router,Request,Response} from "express";
+import { Router, Request, Response } from "express";
 
-const router= Router();
+const router = Router();
 
+// will send the login form to user.... not the form by default sends the post request to /current route... so we will create POST /login to handle user input
+router.get("/login", (req: Request, res: Response) => {
+  res.send(`<form method="POST"  >
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
 
-router.get("/",(req:Request,res:Response)=>{
-    res.send('<h1>Hello</h1>')
-})
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
 
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
 
-export {router};
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>`);
+});
+
+router.post("/login", (req: Request, res: Response) => {
+  console.log(req.body);
+  res.send("Got the post request");
+});
+
+export { router };
