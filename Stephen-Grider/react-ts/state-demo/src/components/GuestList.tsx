@@ -4,10 +4,12 @@ const GuestList = (): JSX.Element => {
   const [guestList, setGuestList] = useState<String[]>([]);
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
+    // this is async.. to do what we wanted to do.
+    const inputNew = input;
     setInput((current) => {
       return "";
     });
-    setGuestList((guestList) => [...guestList, input]);
+    setGuestList((guestList) => [...guestList, inputNew]);
     console.log(guestList);
   };
 
