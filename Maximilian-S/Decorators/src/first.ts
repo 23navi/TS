@@ -3,7 +3,14 @@ function Logger(target: Function) {
   console.log({ target });
 }
 
-@Logger
+function Logger2(input: string) {
+  return function (target: Function) {
+    console.log({ input });
+    console.log({ target });
+  };
+}
+
+@Logger2("navi")
 class Person {
   name = "Navi";
   constructor() {
