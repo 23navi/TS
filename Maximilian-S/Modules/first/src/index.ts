@@ -1,3 +1,3 @@
-import { name1 } from "./sec.js";
-console.log("hello");
-console.log(name1);
+import * as abc from "./sec.js";
+console.log(abc.name1);
+console.log(abc.default);
