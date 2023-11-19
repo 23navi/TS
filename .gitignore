@@ -1,6 +1,6 @@
 .DS_Store
 TypeScript+Slides.pdf
-node_moduless
+node_modules
 db.json
 .cache
 dist
