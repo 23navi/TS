@@ -1,1 +1,1 @@
-export * as actionCreators from "./repo.creators";
+export * from "./repo.creators";
