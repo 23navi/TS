@@ -20,7 +20,7 @@ export const searchRepos = (term: string) => {
       );
       dispatch({
         type: ActionTypes.search_repo_success,
-        payload: data.object.map((result: any) => result.package.name),
+        payload: data.objects.map((result: any) => result.package.name),
       });
     } catch (err) {
       if (err instanceof Error) {

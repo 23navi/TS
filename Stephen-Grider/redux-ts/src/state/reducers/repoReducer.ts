@@ -7,7 +7,16 @@ interface IRepoState {
   loading: boolean;
 }
 
-const reducer = (state: IRepoState, action: IAction): IRepoState => {
+const initialState: IRepoState = {
+  data: [],
+  error: null,
+  loading: false,
+};
+
+const reducer = (
+  state: IRepoState = initialState,
+  action: IAction
+): IRepoState => {
   switch (action.type) {
     case ActionTypes.search_repo_success:
       return { loading: false, error: null, data: action.payload };
